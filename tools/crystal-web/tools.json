@@ -1,0 +1,45 @@
+{
+  "runner": "exec",
+  "enabled": true,
+  "catalogs": ["work", "plan"],
+  "command": ["crystal_web_tools.py"],
+  "stdin": true,
+  "timeoutSeconds": 45,
+  "approval": "always",
+  "tools": [
+    {
+      "name": "websearch",
+      "description": "Search the live web using Parallel by default, with optional Exa selection. Parallel Search MCP supports anonymous use; optional provider keys can improve quota or reliability. Use this for current information and discovery.",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "query": {"type": "string", "description": "The web search query."},
+          "numResults": {"type": "integer", "minimum": 1, "maximum": 20, "default": 8},
+          "livecrawl": {"type": "string", "enum": ["fallback", "preferred"], "default": "fallback"},
+          "type": {"type": "string", "enum": ["auto", "fast", "deep"], "default": "auto"},
+          "contextMaxCharacters": {"type": "integer", "minimum": 1, "maximum": 50000, "default": 10000},
+          "session_id": {"type": "string"},
+          "model_name": {"type": "string"}
+        },
+        "required": ["query"],
+        "additionalProperties": false
+      },
+      "command": ["websearch"]
+    },
+    {
+      "name": "webfetch",
+      "description": "Fetch a public HTTP or HTTPS page and return HTML, plain text, or Markdown. Use this after websearch when you need to read a specific URL.",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "url": {"type": "string", "description": "The HTTP or HTTPS URL to fetch."},
+          "format": {"type": "string", "enum": ["text", "markdown", "html"], "default": "markdown"},
+          "timeout": {"type": "integer", "minimum": 1, "maximum": 120, "default": 30}
+        },
+        "required": ["url"],
+        "additionalProperties": false
+      },
+      "command": ["webfetch"]
+    }
+  ]
+}
