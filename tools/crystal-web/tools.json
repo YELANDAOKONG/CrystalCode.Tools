@@ -1,6 +1,6 @@
 {
   "runner": "exec",
-  "enabled": true,
+  "enabled": false,
   "catalogs": ["work", "plan"],
   "command": ["crystal_web_tools.py"],
   "stdin": true,

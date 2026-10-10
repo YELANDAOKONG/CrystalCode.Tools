@@ -13,7 +13,7 @@ registration, workspace fencing, approval, output truncation, and timeouts.
 
 | Set | Tools | Runner | Notes |
 | :--- | :--- | :--- | :--- |
-| [crystal-web](tools/crystal-web) | `websearch`, `webfetch` | exec | Python 3 standard library only |
+| [crystal-web](tools/crystal-web) | `websearch`, `webfetch` | exec | **Deprecated.** Use the enhanced native .NET version: [CrystalCode.Tools.Web](https://github.com/YELANDAOKONG/CrystalCode.Tools.Web) |
 
 ## How Crystal Code finds these
 
@@ -34,7 +34,9 @@ Discovery is controlled by `/tools on|off|reload` in a session, or by setting
 
 ## Install a set
 
-An `exec` set is copied as-is. Publish into the home or project tools directory:
+An `exec` set is copied as-is. Publish into the home or project tools directory
+(the example installs the deprecated crystal-web set; prefer the native .NET
+[CrystalCode.Tools.Web](https://github.com/YELANDAOKONG/CrystalCode.Tools.Web)):
 
 ```bash
 mkdir -p ~/.crystal/tools
@@ -71,7 +73,7 @@ Crystal Code's
 
 ```text
 tools/
-  crystal-web/
+  crystal-web/            # deprecated; see CrystalCode.Tools.Web
     tools.json            # set manifest
     crystal_web_tools.py  # exec runner
     README.md             # per-set notes

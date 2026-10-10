@@ -1,5 +1,9 @@
 # Crystal web tools
 
+> **Deprecated.** This Python-based tool set is no longer maintained. Use the
+> enhanced native .NET version instead:
+> [YELANDAOKONG/CrystalCode.Tools.Web](https://github.com/YELANDAOKONG/CrystalCode.Tools.Web).
+
 This is a Crystal Code external tool set. It uses only the Python 3 standard
 library and is loaded from `~/.crystal/tools/crystal-web/`.
 
